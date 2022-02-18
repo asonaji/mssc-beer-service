@@ -8,24 +8,25 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
-@RequestMapping("/api/v1/beer")
+@RequestMapping("/api/v1/beer/")
 @RestController
 public class BeerController {
 
-    @GetMapping("{/beerId}")
-    public ResponseEntity<BeerDto>getBeerById(@PathVariable("beerId") UUID beerId){
-    //ToDo Impl
+    @GetMapping({"/{beerId}"})
+    public ResponseEntity<BeerDto> getBeerById(@PathVariable("beerId") UUID beerId) {
+        //ToDo Impl
         return new ResponseEntity<>(BeerDto.builder().build(), HttpStatus.OK);
     }
 
     @PostMapping()
-    public ResponseEntity saveNewBeer(@RequestBody BeerDto beerDto){
+    public ResponseEntity saveNewBeer(@RequestBody BeerDto beerDto) {
         //ToDo Impl
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping("{/beerId}")
-    public ResponseEntity updateBeer(@PathVariable("{beerId}") UUID beerId,@RequestBody BeerDto beerDto){
+
+    @PutMapping({"/{beerId}"})
+    public ResponseEntity updateBeer(@PathVariable("beerId") UUID beerId, @RequestBody BeerDto beerDto) {
         //ToDo Impl
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
